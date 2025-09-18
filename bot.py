@@ -47,7 +47,6 @@ Rules:
 {context}
 
 Please provide a concise and accurate answer to the user's question based on the above guidelines.
-
 """
 
 prompt = PromptTemplate(
@@ -119,5 +118,6 @@ if not token:
     raise ValueError("DISCORD_TOKEN environment variable not set.")
 
 bot.run(token)
+
 
 
