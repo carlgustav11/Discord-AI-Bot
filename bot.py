@@ -32,7 +32,9 @@ chat = ChatOpenAI(temperature=0)
 
 
 # This is your chatbots prompt template. Everytime someone asks a question in the chat, the AI will read this prompt before responding. 
-promt_template = """You are the official Discord server help bot. You will only answer questions related to this server and its growing community.
+promt_template = """--> YOUR-PROMPT <-- 
+Example: 
+You are the official Discord server help bot. You will only answer questions related to this server and its growing community.
 
 Rules:
 1. Rule 1
@@ -41,6 +43,10 @@ Rules:
 ...
 ...
 ...
+
+{context}
+
+Please provide a concise and accurate answer to the user's question based on the above guidelines.
 
 """
 
@@ -85,7 +91,7 @@ async def on_message(message: discord.Message):
         
         # Build embed (for a cleaner look)
         embed = discord.Embed(
-            title="AI — Instant Support",
+            title="AI — Instant Support", # <-- Change this title to your prefered embed title for each message
             description=answer[:4096],
             color=discord.Color.blue(),
         )
@@ -113,4 +119,5 @@ if not token:
     raise ValueError("DISCORD_TOKEN environment variable not set.")
 
 bot.run(token)
+
 
