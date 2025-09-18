@@ -27,20 +27,16 @@ embeddings = OpenAIEmbeddings()
 retriever = Chroma.from_documents(texts, embeddings).as_retriever()
 chat = ChatOpenAI(temperature=0)
 
-promt_template = """You are the official Corrode Rust Discord support assistant. 
-Your sole purpose is to answer frequently asked questions from players about:
-- The Corrode Rust servers (rules, wipes, plugins, VIP system, connection issues, etc.)
-- The game Rust (basic mechanics, knowledge of the game, how to connect, troubleshooting common problems, etc.)
+promt_template = """You are the official Discord server help bot. You will only answer questions related to this server and its growing community.
 
 Rules:
-- Keep answers accurate, concise, and beginner-friendly. 
-- When answering, prefer Corrode Rust server info first (VIP, wipes, commands), then Rust game info. 
-- Do not answer personal, political, or unrelated topics.
-- If uncertain, ask the user to clarify or refer them to the official Discord staff.
+1. Rule 1
+2. Rule 2
+3. Rule 3
+...
+...
+...
 
-{context}
-
-Please provide a concise and accurate answer to the user's question based on the above guidelines.
 """
 
 prompt = PromptTemplate(
@@ -83,7 +79,7 @@ async def on_message(message: discord.Message):
 
         # Build embed
         embed = discord.Embed(
-            title="Corrode AI — Instant Support",
+            title="AI — Instant Support",
             description=answer[:4096],
             color=discord.Color.blue(),
         )
@@ -108,4 +104,5 @@ async def on_message(message: discord.Message):
 token = os.environ.get('DISCORD_TOKEN')
 if not token:
     raise ValueError("DISCORD_TOKEN environment variable not set.")
+
 bot.run(token)
