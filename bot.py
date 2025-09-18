@@ -1,8 +1,10 @@
+# General discord and python library imports
 import os
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv, find_dotenv
 
+# ChatGPT library imports
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import CharacterTextSplitter   # or RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
@@ -27,6 +29,9 @@ embeddings = OpenAIEmbeddings()
 retriever = Chroma.from_documents(texts, embeddings).as_retriever()
 chat = ChatOpenAI(temperature=0)
 
+
+
+# This is your chatbots prompt template. Everytime someone asks a question in the chat, the AI will read this prompt before responding. 
 promt_template = """You are the official Discord server help bot. You will only answer questions related to this server and its growing community.
 
 Rules:
@@ -45,19 +50,19 @@ prompt = PromptTemplate(
 system_message_prompt = SystemMessagePromptTemplate(prompt=prompt)
 
 
-# Set up Discord bot with intents
 
+# Set up Discord bot with intents
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix="", intents=intents)
+bot = commands.Bot(command_prefix="", intents=intents) # Currently the bot responds to all messages sent in the targeted channel. You can change this in to your desired command --> command_prefix="!"
+
 
 # Only respond to messages in a specific channel
-
 TARGET_CHANNEL_ID = 1411802805995569162  # Replace with your channel's ID
 
-# Define a command to handle questions
 
+# Define a command to handle questions
 @bot.event
 async def on_message(message: discord.Message):
     if message.author.bot:
@@ -77,7 +82,8 @@ async def on_message(message: discord.Message):
         result = chat([sys, HumanMessage(content=question)])
         answer = result.content if hasattr(result, "content") else str(result)
 
-        # Build embed
+        
+        # Build embed (for a cleaner look)
         embed = discord.Embed(
             title="AI — Instant Support",
             description=answer[:4096],
@@ -88,6 +94,7 @@ async def on_message(message: discord.Message):
 
         await message.channel.send(embed=embed)
 
+    # If the user-message is formatted incorrectly, it will use this error handler
     except Exception as e:
         print(f"Error: {e}")
         await message.channel.send(
@@ -106,3 +113,4 @@ if not token:
     raise ValueError("DISCORD_TOKEN environment variable not set.")
 
 bot.run(token)
+
