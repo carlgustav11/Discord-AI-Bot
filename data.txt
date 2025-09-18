@@ -1,0 +1,204 @@
+# Corrode Rust FAQ v1
+
+---
+ID: about_server
+Q: What is Corrode Rust? || Tell me about Corrode Rust
+A: Corrode Rust runs custom Rust servers with balanced gameplay, weekly wipes - biweekly BP wipes, premium plugins, FPS++ gameplay in focus, active moderation and much more. Search “Corrode Rust” in the Rust server list or connect via F1 console with connect <server_ip>. See #server-info for current IPs and wipe info.
+LastUpdated: 2025-08-31
+
+---
+ID: wipe_schedule
+Q: When is wipe? || When do servers wipe? || Do blueprints wipe?
+A: Servers wipe every Friday at 16:00 CET unless announced otherwise. Blueprints wipe biweekly on Fridays and on the first Thursday of each month. Check #wipe-notifications for live notifications and info.
+LastUpdated: 2025-08-31
+
+---
+ID: vip_join
+Q: How do I get VIP? || Buy VIP || Corrode support
+A: VIP is Corroderust's way to keep the gears running. It is the best way to support us and can be purchased at corroderust.com/store/packages. Perks include exclusive kits, queue skip, furnace splitter, unburnable-meat, Colored name in-game and on Discord, and priority support as well as early access to giveaways and events. Details in #support-us.
+LastUpdated: 2025-08-31
+
+---
+ID: connect_how
+Q: How do I connect? || What is the IP? || Can’t find the server
+A: Search “Corrode Rust” in the Rust server list or Open Rust → press F1 → run: connect <server_ip>. Replace <server_ip> with the IP from #server-info. If it fails, restart Rust and try again. Don't forget to favorite the server in the list to quickly find it again next time.
+LastUpdated: 2025-08-31
+
+---
+ID: team_limits
+Q: Team limits? || How many teammates? || Main limit
+A: Limits depend on server type. On our Solo server, the max team size is 1. Duo server max team size is 2, and Main server max team size is 8. No circumventing via alliances or off-team helpers. Full details in #rules.
+LastUpdated: 2025-08-31
+
+---
+ID: rules_summary
+Q: What are the rules? || Server rules
+A: No cheating or scripts. Respect team limits. No impersonation. No hate speech. No exploits or bug abuse. Follow staff instructions. Full rules-list in #rules.
+LastUpdated: 2025-08-31
+
+---
+ID: link_accounts
+Q: Link Steam and Discord? || Rewards for linking? || How to link?
+A: Go to link.corroderust.com and log in with both Steam and Discord. Linking unlocks daily rewards, Discord kit, SignArtist, Giveaway access, and the **linked** Discord role. If redirected incorrectly, clear cache and try again or open a ticket in #tickets.
+LastUpdated: 2025-08-31
+
+---
+ID: report_cheater
+Q: How do I report a cheater? || Where to report hackers?
+A: Gather evidence (clips/screenshots) and open a ticket in #tickets. Do not accuse in public chat. Staff will review and act.
+LastUpdated: 2025-08-31
+
+---
+ID: connection_issues
+Q: I can’t connect || Timeouts || High ping
+A: Try: 
+`1. Restart Rust. `
+`2. F1 console: connect <server_ip>. `
+`3. Steam → Verify game files. `
+`4. Reboot router. `
+
+If issues persist, open a ticket in #tickets or #support for admin assistance.
+LastUpdated: 2025-08-31
+
+---
+ID: corrode_servers
+Q: What servers do Corroderust have? || Servers? || How many servers does corrode have?
+A: Corrode Rust offers 3 servers at the moment:
+- Solo Only: `connect solo2x.corroderust.com`
+- Solo/Duo: `connect duo2x.corroderust.com`
+- Main: `connect main2x.corroderust.com`
+LastUpdated: 2025-08-31
+
+---
+ID: corrode_servers
+Q: What servers do Corroderust have? || Servers? || How many servers does corrode have?
+A: Corrode Rust offers 3 servers at the moment:
+- Solo Only: `connect solo2x.corroderust.com`
+- Solo/Duo: `connect duo2x.corroderust.com`
+- Main: `connect main2x.corroderust.com`
+LastUpdated: 2025-08-31
+
+---
+ID: puzzle_harbor
+Q: Harbor puzzle? || How to run Harbor? || Green card puzzle harbor
+A: Requirements: 1x Fuse, 1x Green Card → yields Blue Card.
+Steps:
+- 1 `Find the small building with the fuse box. Located in the middle of the monument`
+- 2 `Insert the fuse and switch power on.`
+- 3 `Swipe Green Card at the nearby reader. Either on 1st floor or by the hangar`
+- 4 `Enter, and loot the room. Blue card is on the table`
+- 5 `(Optional) Remove your fuse to reuse elsewhere.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_satellite
+Q: Satellite Dish puzzle? || How to run Satellite? || Blue card puzzle satellite
+A: Requirements: 1x Fuse, 1x Green Card → yields Blue Card.
+Steps:
+- 1 `Locate the small building with fuse box.`
+- 2 `Insert fuse and flip the switch.`
+- 3 `Swipe Green Card at the reader on the opposite side of the monument.`
+- 4 `Loot the room and pick up the Blue Card from the table.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_sewer
+Q: Sewer Branch puzzle? || How to run Sewer Branch? || Blue card puzzle sewer
+A: Requirements: 1x Fuse, 1x Green Card → yields Blue Card.
+Steps:
+- 1 `Place fuse in the office fuse box and power on.`
+- 2 `Go down to the tunnel area located 10m to the right of the recycler.`
+- 3 `Swipe Green Card at the reader at the end of the tunnel.`
+- 4 `Loot the room and grab the Blue Card at the table.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_airfield
+Q: Airfield puzzle? || How to run Airfield? || Blue/Red card puzzle airfield
+A: Requirements: 2x Fuses, 1x Green Card, 1x Blue Card → yields Red Card loot.
+Steps:
+- 1 `Insert first fuse in main office and switch on.`
+- 2 `Swipe Green Card in the tunnel located by the electrical compound to access first room.`
+- 3 `Beware of scientists.`
+- 4 `Activate the internal switch and insert second fuse.`
+- 5 `Swipe Blue Card at main puzzle door to open the red-tier loot room.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_trainyard
+Q: Train Yard puzzle? || How to run Train Yard? || Red card puzzle trainyard
+A: Requirements: 1x Fuse, 1x Blue Card → yields Red Card.
+Steps:
+- 1 `Flip the switch in the radiated tower up top.`
+- 2 `Go to the main building and insert first fuse and power on by the 1st floor.`
+- 3 `Access the red-tier room by swiping the blue card and collect Red Card + elite crates.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_powerplant
+Q: Power Plant puzzle? || How to run Power Plant? || Red card puzzle power plant
+A: Requirements: 2x Fuses, 1x Green Card, 1x Blue Card → yields Red Card.
+Steps:
+- 1 `Flip the switch in the recycler building.`
+- 2 `Insert fuse in outer building by the refinery and go to the main building to swipe Green Card.`
+- 2 `Activate the internal switch in the far back on 1st floor and place the second fuse on 3rd floor.`
+- 3 `Swipe Blue Card to open the red-tier loot room, card up top on the table.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_watertreatment
+Q: Water Treatment Plant puzzle? || How to run Water Treatment? || Red card puzzle water treatment
+A: Requirements: 1x Fuse, 1x Blue Card → yields Red Card.
+Steps:
+- 1 `Insert fuse in the control room and switch power on.`
+- 2 `Swipe Blue Card at the puzzle door in the recycler building.`
+- 3 `Enter and loot the room; collect the Red Card on the table.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_militarytunnels
+Q: Military Tunnels puzzle? || How to run Military Tunnels? || Red card puzzle military tunnels
+A: Requirements: 2x Fuses, 1x Green Card, 1x Blue Card, 1x Red Card, multiple timed switches (heavy radiation, scientists).
+Steps:
+- 1 `Beware of many scientists guarding every bit of the puzzle.`
+- 2 `Insert fuse and turn power on in the side room to the right.`
+- 3 `Swipe green Card at the reader on the left hand side of the tunnels to open switch room with scientists.`
+- 3 `Flip the switch and move towards the back right side of the tunnels`
+- 4 `Swipe blue card to enter room with red card switch and scientists`
+- 5 `Flip the switch and swipe red card to enter the room`
+- 6 `Clear out the scientists and loot the whole room.`
+- 7 `Leave the way you came from, or the Emergency exit with guarding scientists.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_launchsite
+Q: Launch Site puzzle? || How to run Launch Site? || Red card puzzle launch site
+A: Requirements: 2x Fuses, 1x Green Card, 1x Red Card, multiple timed switches (heavy radiation, scientists).
+Steps:
+- 1 `Locate the green card building on the left hand side by the silos`
+- 2 `Swipe green card and insert fuse + flip the switch`
+- 3 `Head to the control room on the opposite side of the monument and insert fuse + flip the switch.`
+- 4 `Swipe Red Card at the main building. 4 different entrances.`
+- 5 `Clear NPCs and move your way to the top of the roof to get all the loot.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_oilrigs
+Q: Oil Rig puzzle? || How to run Oil Rig? || Red card puzzle oil rig
+A: Requirements: 1x blue card, 1x Red Card (no fuse). Applies to Small and Large Oil Rig.
+Steps:
+- 1 `Clear scientists floor by floor.`
+- 2 `Reach the locked room on the top deck.`
+- 3 `Swipe Blue and/or Red Card to start hacking the locked crate.`
+- 4 `Defend vs. heavy scientists until the crate unlocks after 15min, then loot.`
+LastUpdated: 2025-09-01
+
+---
+ID: puzzle_underwaterlabs
+Q: Underwater Labs puzzles? || How to run Labs? || Red/Blue card puzzle underwater labs
+A: Requirements: 1x Oxygen Tank, 1x Green Card, 1x Blue Card, 1x Red Card (varies by layout; scientists present).
+Steps:
+- 1 `Navigate the lab halls and locate color-coded card readers.`
+- 2 `Swipe Green/Blue/Red Card where required to open secured rooms.`
+- 3 `Clear scientists and loot low/high-tier rooms and crates.`
+LastUpdated: 2025-09-01

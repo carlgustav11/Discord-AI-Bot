@@ -1,0 +1,111 @@
+import os
+import discord
+from discord.ext import commands
+from dotenv import load_dotenv, find_dotenv
+
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import CharacterTextSplitter   # or RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import Chroma
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate, PromptTemplate, SystemMessagePromptTemplate
+from langchain_core.messages import HumanMessage
+
+
+# Load environment variables from .env file
+load_dotenv(find_dotenv())
+
+loader = TextLoader('./data.txt', encoding='utf-8')
+documents = loader.load()
+text_splitter = CharacterTextSplitter(
+    separator="\n---\n",
+    chunk_size=1200,
+    chunk_overlap=50
+)
+texts = text_splitter.split_documents(documents)
+
+embeddings = OpenAIEmbeddings()
+retriever = Chroma.from_documents(texts, embeddings).as_retriever()
+chat = ChatOpenAI(temperature=0)
+
+promt_template = """You are the official Corrode Rust Discord support assistant. 
+Your sole purpose is to answer frequently asked questions from players about:
+- The Corrode Rust servers (rules, wipes, plugins, VIP system, connection issues, etc.)
+- The game Rust (basic mechanics, knowledge of the game, how to connect, troubleshooting common problems, etc.)
+
+Rules:
+- Keep answers accurate, concise, and beginner-friendly. 
+- When answering, prefer Corrode Rust server info first (VIP, wipes, commands), then Rust game info. 
+- Do not answer personal, political, or unrelated topics.
+- If uncertain, ask the user to clarify or refer them to the official Discord staff.
+
+{context}
+
+Please provide a concise and accurate answer to the user's question based on the above guidelines.
+"""
+
+prompt = PromptTemplate(
+    template=promt_template, input_variables=["context"]
+)
+system_message_prompt = SystemMessagePromptTemplate(prompt=prompt)
+
+
+# Set up Discord bot with intents
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix="", intents=intents)
+
+# Only respond to messages in a specific channel
+
+TARGET_CHANNEL_ID = 1411802805995569162  # Replace with your channel's ID
+
+# Define a command to handle questions
+
+@bot.event
+async def on_message(message: discord.Message):
+    if message.author.bot:
+        return
+    if message.channel.id != TARGET_CHANNEL_ID:
+        return
+
+    try:
+        question = message.content
+
+        # Retrieve FAQ docs
+        docs = retriever.get_relevant_documents(query=question)
+        ctx = "\n\n".join(getattr(d, "page_content", str(d)) for d in docs[:4])[:3000]
+
+        # LLM call
+        sys = system_message_prompt.format(context=ctx)
+        result = chat([sys, HumanMessage(content=question)])
+        answer = result.content if hasattr(result, "content") else str(result)
+
+        # Build embed
+        embed = discord.Embed(
+            title="Corrode AI — Instant Support",
+            description=answer[:4096],
+            color=discord.Color.blue(),
+        )
+        embed.set_footer(text=f"Asked by: {message.author.display_name}")
+        embed.timestamp = message.created_at
+
+        await message.channel.send(embed=embed)
+
+    except Exception as e:
+        print(f"Error: {e}")
+        await message.channel.send(
+            embed=discord.Embed(
+                title="Error",
+                description="Sorry, I was unable to process your question.",
+                color=discord.Color.red(),
+            )
+        )
+
+
+# Run the bot with the token from environment variables
+
+token = os.environ.get('DISCORD_TOKEN')
+if not token:
+    raise ValueError("DISCORD_TOKEN environment variable not set.")
+bot.run(token)
