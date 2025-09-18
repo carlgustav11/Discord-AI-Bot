@@ -37,6 +37,8 @@ This AI chat-bot is easy to configure and even easier to use.
     This works like any other AI prompt, and it can be as long and specific as you want.
 11. Use the data.txt file to make pre-made answers that the bot will use, in case a user asks a question that matches an answer from the data.txt file.
     The bot will always prioritize the pre-made answers, and if it doesn't exist, it will generate an answer from the main prompt
+
+### To run the bot:
 12. Run ```pip install discord.py python-dotenv langchain langchain-community langchain-openai``` in you terminal.
     Else do them one at a time for less risk of syntax error
     ```pip install discord.py
@@ -44,4 +46,7 @@ This AI chat-bot is easy to configure and even easier to use.
        pip install langchain 
        pip install langchain-community 
        pip install langchain-openai```
+13. Start the bot:
+    ```python bot.py```
+
 
